@@ -9,4 +9,9 @@ services:
       - "/Users/tad/workspace:/workspace"
       # Mount your host key to a temporary spot
       - "/Users/tad/.ssh/authorized_keys:/tmp/authorized_keys:ro"
+      # Persist Antigravity server files to avoid re-downloading
+      - "antigravity-cache:/root/.antigravity-server"
     restart: unless-stopped
+
+volumes:
+  antigravity-cache:
