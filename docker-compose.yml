@@ -1,0 +1,12 @@
+services:
+  antigravity-server-for-macos:
+    image: ghcr.io/wptad/antigravity-server-for-macos:latest
+    container_name: antigravity-server-for-macos
+    ports:
+      - "2222:22"
+    volumes:
+      # Your workspace
+      - "/Users/tad/workspace:/workspace"
+      # Mount your host key to a temporary spot
+      - "/Users/tad/.ssh/authorized_keys:/tmp/authorized_keys:ro"
+    restart: unless-stopped
